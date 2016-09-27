@@ -146,3 +146,19 @@ build-iPhoneSimulator/
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
 
+.gitignore
+Gemfile
+Gemfile.lock
+README.md
+Rakefile
+app/
+bin/
+config.ru
+config/
+db/
+lib/
+log/
+public/
+test/
+tmp/
+vendor/
