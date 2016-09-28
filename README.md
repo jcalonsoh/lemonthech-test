@@ -30,7 +30,5 @@ TODO
 TODO
 
 * Libraries
-
-Answer 1 at ActionController Concers FractalZeros
-
-Answer 2 at ActionController Concers Number2Words
+    * Answer 1 at ActionController Concers FractalZeros
+    * Answer 2 at ActionController Concers Number2Words
