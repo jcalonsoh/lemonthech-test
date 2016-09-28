@@ -25,6 +25,8 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5'
   gem 'simplecov', '~> 0.12'
+  gem 'rubocop', '~> 0.43.0', require: false
+  gem 'rubocop-rspec', '~> 1.7.0', require: false
 end
 
 group :development do
