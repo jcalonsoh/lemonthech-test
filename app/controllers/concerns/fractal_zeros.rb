@@ -1,3 +1,5 @@
+# This module is the answer 1 of Lemontech test
+# module logic take http://stackoverflow.com/questions/23977727/the-number-of-trailing-zeros-in-a-factorial-of-a-given-number-ruby
 module FractalZeros
   extend ActiveSupport::Concern
 

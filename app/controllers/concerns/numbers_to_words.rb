@@ -1,3 +1,5 @@
+# This module is the answer 2 of Lemontech test
+# module logic take from http://stackoverflow.com/questions/19445003/using-ruby-convert-numbers-to-words
 module NumbersToWords
   extend ActiveSupport::Concern
 
