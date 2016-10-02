@@ -1,0 +1,17 @@
+Respuesta 1
+
+SQL
+
+select courses.name, students.name from create_join_table_enrollments
+inner join students on 
+create_join_table_enrollments.student_id = students.id
+inner join courses on 
+create_join_table_enrollments.course_id = courses.id
+
+
+RAILS
+
+CreateJoinTableEnrollment.joins(:student,:course)
+
+  CreateJoinTableEnrollment Load (0.5ms)  SELECT `create_join_table_enrollments`.* FROM `create_join_table_enrollments` INNER JOIN `students` ON `students`.`id` = `create_join_table_enrollments`.`student_id` INNER JOIN `courses` ON `courses`.`id` = `create_join_table_enrollments`.`course_id`
+=> #<ActiveRecord::Relation [#<CreateJoinTableEnrollment id: 1, student_id: 1, teacher_id: 1, course_id: 1, created_at: "2016-10-01 23:51:53", updated_at: "2016-10-01 23:51:53">, #<CreateJoinTableEnrollment id: 2, student_id: 1, teacher_id: 3, course_id: 2, created_at: "2016-10-01 23:51:53", updated_at: "2016-10-01 23:51:53">, #<CreateJoinTableEnrollment id: 3, student_id: 1, teacher_id: 2, course_id: 3, created_at: "2016-10-01 23:51:53", updated_at: "2016-10-01 23:51:53">, #<CreateJoinTableEnrollment id: 4, student_id: 2, teacher_id: 1, course_id: 1, created_at: "2016-10-01 23:51:53", updated_at: "2016-10-01 23:51:53">, #<CreateJoinTableEnrollment id: 5, student_id: 4, teacher_id: 1, course_id: 1, created_at: "2016-10-01 23:51:53", updated_at: "2016-10-01 23:51:53">, #<CreateJoinTableEnrollment id: 6, student_id: 5, teacher_id: 1, course_id: 1, created_at: "2016-10-01 23:51:53", updated_at: "2016-10-01 23:51:53">]>

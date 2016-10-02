@@ -44,11 +44,11 @@ RSpec.describe ProgrammingController, type: :controller do
 
     describe FakesNumberToWordsController do
       it 'Words of 10' do
-        expect(NumbersToWords.number(10).upcase).to eq('Ten'.upcase)
+        expect(NumbersToWords.number(10).upcase).to eq('diez'.upcase)
       end
 
       it 'Words of 22' do
-        expect(NumbersToWords.number(22).upcase).to eq('twenty two'.upcase)
+        expect(NumbersToWords.number(22).upcase).to eq('veinte dos'.upcase)
       end
 
       it 'Failed Words of 33' do
@@ -60,7 +60,19 @@ RSpec.describe ProgrammingController, type: :controller do
       end
 
       it 'Failed Words of 1000' do
-        expect(NumbersToWords.number(1000).upcase).to match('thousand'.upcase)
+        expect(NumbersToWords.number(1000).upcase).to match('mil'.upcase)
+      end
+
+      it 'Failed Words of 201' do
+        expect(NumbersToWords.number(201).upcase).to match('doscientos uno'.upcase)
+      end
+
+      it 'Failed Words of 145' do
+        expect(NumbersToWords.number(145).upcase).to match('ciento cuarenta cinco'.upcase)
+      end
+
+      it 'Failed Words of 945' do
+        expect(NumbersToWords.number(945).upcase).to match('nuevecientos cuarenta cinco'.upcase)
       end
     end
   end
