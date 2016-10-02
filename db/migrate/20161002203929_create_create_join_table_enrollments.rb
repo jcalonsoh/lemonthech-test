@@ -4,6 +4,7 @@ class CreateCreateJoinTableEnrollments < ActiveRecord::Migration[5.0]
       t.references :student, foreign_key: true
       t.references :teacher, foreign_key: true
       t.references :course, foreign_key: true
+      t.references :classroom, foreign_key: true
 
       t.timestamps
     end

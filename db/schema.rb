@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161001230518) do
+ActiveRecord::Schema.define(version: 20161002203929) do
+
+  create_table "classrooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "courses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.integer  "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -24,26 +30,28 @@ ActiveRecord::Schema.define(version: 20161001230518) do
     t.integer  "student_id"
     t.integer  "teacher_id"
     t.integer  "course_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "classroom_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["classroom_id"], name: "index_create_join_table_enrollments_on_classroom_id", using: :btree
     t.index ["course_id"], name: "index_create_join_table_enrollments_on_course_id", using: :btree
     t.index ["student_id"], name: "index_create_join_table_enrollments_on_student_id", using: :btree
     t.index ["teacher_id"], name: "index_create_join_table_enrollments_on_teacher_id", using: :btree
   end
 
   create_table "exams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.decimal  "grade",      precision: 10, default: 100
-    t.datetime "date"
+    t.decimal  "grade",      precision: 10, default: 0,                     null: false
+    t.datetime "date",                      default: '2016-10-02 21:18:23', null: false
     t.integer  "student_id"
     t.integer  "course_id"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.datetime "created_at",                                                null: false
+    t.datetime "updated_at",                                                null: false
     t.index ["course_id"], name: "index_exams_on_course_id", using: :btree
     t.index ["student_id"], name: "index_exams_on_student_id", using: :btree
   end
 
   create_table "students", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,6 +63,7 @@ ActiveRecord::Schema.define(version: 20161001230518) do
   end
 
   add_foreign_key "courses", "teachers"
+  add_foreign_key "create_join_table_enrollments", "classrooms"
   add_foreign_key "create_join_table_enrollments", "courses"
   add_foreign_key "create_join_table_enrollments", "students"
   add_foreign_key "create_join_table_enrollments", "teachers"

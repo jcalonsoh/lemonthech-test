@@ -6,6 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+
+classroom_list = [
+    'Paralelo A 2016',
+    'Paralelo B 2016',
+    'Paralelo C 2016'
+]
+
+classroom_list.each do |classroom|
+  Classroom.create( name: classroom )
+end
+
 student_list = %w(Jose Pablo Denis Javier Daniel)
 
 student_list.each do |student|
@@ -33,21 +45,28 @@ course_list.each do |course, professor_id|
 end
 
 enrollment_list = [
-    [ Student.where(:name => 'Jose').first.id, Teacher.where(:name => 'Ing. Dongo').first.id, Course.where(:name =>'Programación').first.id ],
-    [ Student.where(:name => 'Jose').first.id, Teacher.where(:name => 'Economista Luisa').first.id, Course.where(:name =>'Economia').first.id ],
-    [ Student.where(:name => 'Jose').first.id, Teacher.where(:name => 'Profesor Xavier').first.id, Course.where(:name =>'Base de Datos').first.id ],
-    [ Student.where(:name => 'Pablo').first.id, Teacher.where(:name => 'Ing. Dongo').first.id, Course.where(:name =>'Programación').first.id ],
-    [ Student.where(:name => 'Javier').first.id, Teacher.where(:name => 'Ing. Dongo').first.id, Course.where(:name =>'Programación').first.id ],
-    [ Student.where(:name => 'Daniel').first.id, Teacher.where(:name => 'Ing. Dongo').first.id, Course.where(:name =>'Programación').first.id ]
+    [ Student.where(:name => 'Jose').first.id, Teacher.where(:name => 'Ing. Dongo').first.id, Course.where(:name =>'Programación').first.id,
+      Classroom.where(:name => 'Paralelo A 2016').first.id ],
+    [ Student.where(:name => 'Jose').first.id, Teacher.where(:name => 'Economista Luisa').first.id, Course.where(:name =>'Economia').first.id,
+      Classroom.where(:name => 'Paralelo A 2016').first.id ],
+    [ Student.where(:name => 'Jose').first.id, Teacher.where(:name => 'Profesor Xavier').first.id, Course.where(:name =>'Base de Datos').first.id,
+      Classroom.where(:name => 'Paralelo A 2016').first.id ],
+    [ Student.where(:name => 'Pablo').first.id, Teacher.where(:name => 'Ing. Dongo').first.id, Course.where(:name =>'Programación').first.id,
+      Classroom.where(:name => 'Paralelo B 2016').first.id ],
+    [ Student.where(:name => 'Javier').first.id, Teacher.where(:name => 'Ing. Dongo').first.id, Course.where(:name =>'Programación').first.id,
+      Classroom.where(:name => 'Paralelo C 2016').first.id ],
+    [ Student.where(:name => 'Daniel').first.id, Teacher.where(:name => 'Ing. Dongo').first.id, Course.where(:name =>'Programación').first.id,
+      Classroom.where(:name => 'Paralelo A 2016').first.id ],
 ]
 
-enrollment_list.each do |student, professor, course|
-  CreateJoinTableEnrollment.create( student_id: student, teacher_id: professor, course_id: course)
+enrollment_list.each do |student, professor, course, classroom|
+  CreateJoinTableEnrollment.create( student_id: student, teacher_id: professor, course_id: course, classroom_id: classroom)
 end
 
 exam_list = [
     [ 45, Student.where(:name => 'Jose').first.id, Course.where(:name =>'Programación').first.id],
-    [ 65, Student.where(:name => 'Pablo').first.id, Course.where(:name =>'Programación').first.id],
+    [ 40, Student.where(:name => 'Jose').first.id, Course.where(:name =>'Programación').first.id],
+    [ 55, Student.where(:name => 'Pablo').first.id, Course.where(:name =>'Programación').first.id],
     [ 80, Student.where(:name => 'Javier').first.id, Course.where(:name =>'Programación').first.id],
     [ 80, Student.where(:name => 'Daniel').first.id, Course.where(:name =>'Programación').first.id],
     [ 20, Student.where(:name => 'Denis').first.id, Course.where(:name =>'Programación').first.id],
@@ -57,7 +76,7 @@ exam_list = [
     [ 80, Student.where(:name => 'Daniel').first.id, Course.where(:name =>'Economia').first.id],
     [ 92, Student.where(:name => 'Denis').first.id, Course.where(:name =>'Economia').first.id],
     [ 70, Student.where(:name => 'Jose').first.id, Course.where(:name =>'Base de Datos').first.id],
-    [ 86, Student.where(:name => 'Pablo').first.id, Course.where(:name =>'Base de Datos').first.id],
+    [ 46, Student.where(:name => 'Pablo').first.id, Course.where(:name =>'Base de Datos').first.id],
     [ 65, Student.where(:name => 'Javier').first.id, Course.where(:name =>'Base de Datos').first.id],
     [ 70, Student.where(:name => 'Daniel').first.id, Course.where(:name =>'Base de Datos').first.id],
     [ 90, Student.where(:name => 'Denis').first.id, Course.where(:name =>'Base de Datos').first.id],

@@ -1,13 +1,3 @@
-Respuesta 1
-
-SQL
-
-select courses.name, students.name from create_join_table_enrollments
-inner join students on 
-create_join_table_enrollments.student_id = students.id
-inner join courses on 
-create_join_table_enrollments.course_id = courses.id
-
 
 RAILS
 
