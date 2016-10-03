@@ -7,6 +7,8 @@
     * Programación
         * Respuesta 1 en el ActionController Concers FractalZeros
         * Respuesta 2 en el ActionController Concers Number2Words
+        * Respuesta 3
+            * Revisando http://blog.diatomenterprises.com/ruby-and-recursion-to-find-out-all-possible-chess-knights-movements-using-minimax-algorithm/
     * Modelo de datos
         * Respuesta 1 al 5 en el directorio ModeloDeDatos
             * Respuesta1.md
