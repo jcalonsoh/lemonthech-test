@@ -14,3 +14,9 @@
             * Respuesta3.md
             * Respuesta4.md
             * Respuesta5.md
+        * Respuesta 6 
+            * Revisando adaptabilidad de https://github.com/efatsi/Card-Games-on-Rails
+    * Diseño
+        * Respuesta 1, App esta en Rails
+        * Respuesta 2, Revisando Modelo de Datos la respuesta 6
+        * Respuesta 3, Incompleta
