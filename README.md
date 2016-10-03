@@ -20,3 +20,4 @@
         * Respuesta 1, App esta en Rails
         * Respuesta 2, Revisando Modelo de Datos la respuesta 6
         * Respuesta 3, Incompleta
+            * public/index.html
